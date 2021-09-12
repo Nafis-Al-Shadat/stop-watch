@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- link css  -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-warning">
+    <header>
+        <section class="laps" id="laps">
+        </section>
+        <button class="btn"id="remove">Remove All Laps</button>
+        <!-- toast  -->
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                <strong class="me-auto">Stop Watch</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" id="toast-btn"></button>
+                </div>
+                <div class="toast-body">
+                Laps will be saved and will not be deleted after closing the browser.
+                </div>
+            </div>
+            </div>
+    </header>
+    <main id="main">
+        <audio id="second-audio" src="Clock-Ticking-C-www.fesliyanstudios.com.mp3"></audio>
+        <audio id="minute-audio"src="JELUAPC-ding.mp3"></audio>
+        <audio id="success-audio"src="success-sound-effect.mp3"></audio>
+        <audio id="button-audio" src="mixkit-arcade-game-jump-coin-216.wav"></audio>
+        <section id="main-section" class="d-flex justify-content-center align-items-center h-100vh mb-3 mb-md-0 mt-5 pt-5 pt-md-0 mt-md-0">
+            <section>
+                <div  class="d-grid">
+                    <div class="p-3 mx-2 d-flex align-items-center justify-content-center bg-secondary inn-shadow text-white fs-1" id="hour">00</div>
+                    <div class="p-3 mx-2 d-flex align-items-center justify-content-center bg-secondary inn-shadow text-white fs-1"id="minute">00</div>
+                    <div class="p-3 mx-2 d-flex align-items-center justify-content-center bg-secondary inn-shadow text-white fs-1" id="second">00</div>
+                    <div class="p-3 mx-2 d-flex align-items-center justify-content-center bg-secondary inn-shadow text-white fs-1" id="milisecond">00</div>
+                </div>
+            </section>
+            <section>
+                <button class="btn mx-2 btn-primary" id="start-btn">Start</button>
+                <button  class="btn mx-2 btn-danger"id="stop-btn">Stop</button>
+                <button class="btn mx-2 btn-secondary" id="reset-btn">Reset</button>
+                <button class="btn mx-2 btn-success" id="lap-btn">Lap</button>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <div class="speaker" id="speaker" title="sound">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#eee">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+              </svg>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
