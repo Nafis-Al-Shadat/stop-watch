@@ -21,7 +21,7 @@ const secondAudio = getELm('second-audio');
 const minuteAudio = getELm('minute-audio');
 const successAudio = getELm('success-audio');
 const buttonAudio = getELm('button-audio');
-successAudio.volume = 0.05;
+successAudio.volume = 0.1;
 // speaker icon change button
 addEvent('speaker','click',()=>{
     buttonAudio.play(); 
