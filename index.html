@@ -17,16 +17,11 @@
         </section>
         <button class="btn"id="remove">Remove All Laps</button>
         <!-- toast  -->
-            <div class="position-fixed top-0 start-0 p-3" style="z-index: 99999">
-            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                <small class="me-auto">Stop Watch</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" id="toast-btn"></button>
+            <div class="position-fixed top-0 end-0" style="z-index: 99999">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <button type="button" class="btn-close m-2" data-bs-dismiss="toast" aria-label="Close" id="toast-btn"></button>
+                <p class="mx-2 my-0">Laps will be saved and will not be deleted after closing the browser unless you delete it or start a new one.</p>
                 </div>
-                <div class="toast-body">
-                Laps will be saved and will not be deleted after closing the browser unless you delete it or start a new one.
-                </div>
-            </div>
             </div>
     </header>
     <main id="main">
