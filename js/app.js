@@ -5,6 +5,7 @@ let counter = false;
 let speaker = true;
 let lapCount = 1;
 let timer;
+
 // function for getting elm by id 
 const getELm = id =>{
    return document.getElementById(id)
@@ -13,6 +14,8 @@ const getELm = id =>{
 const addEvent = (id,name,func,obj) =>{
     getELm(id).addEventListener(name,func,obj);
 }
+//height 
+let height = getELm('main').offsetHeight;
 // sound elements 
 const secondAudio = getELm('second-audio');
 const minuteAudio = getELm('minute-audio');
@@ -21,9 +24,7 @@ const buttonAudio = getELm('button-audio');
 successAudio.volume = 0.1;
 // speaker icon change button
 addEvent('speaker','click',()=>{
-    if(speaker){
-        buttonAudio.play(); 
-    }
+    buttonAudio.play(); 
     speaker = !speaker;
     if(speaker){
         getELm('speaker').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#eee">
@@ -52,8 +53,10 @@ addEvent('start-btn','click',()=>{
         // displaying laps none 
         getELm('remove').style.display = 'none';
         getELm('laps').style.display = 'none';
-        // deviceFriendly 
-        deviceFriendly();
+        getELm('main-section').style.margin = "0";
+        getELm('main-section').style.padding = "0";
+        getELm('main').style.marginTop = '0';
+        getELm('main-section').style.height = "100vh";
         lapCount = 1;
    }
 });
@@ -139,6 +142,10 @@ addEvent('remove','click',()=>{
     getELm('remove').style.display = 'none';
     getELm('laps').style.display = 'none';
     deviceFriendly();
+    getELm('main').style.marginTop = '0';
+    getELm('main-section').style.margin = "0";
+    getELm('main-section').style.padding = "0";
+    getELm('main-section').style.height = '100vh';
 });
 // updating local storage 
 const updateLocal = obj =>{
@@ -257,23 +264,26 @@ const startTimer = () =>{
 }
 
 // making it device friendly 
-
+window.onload = ()=>{
+    if(lapCount > 1){
+        height = getELm('main').offsetHeight;
+        deviceFriendly()
+    }
+}
 const deviceFriendly = () =>{
     if(window.innerWidth < 650){
-        const height = getELm('main').offsetHeight;
-        getELm('laps').style.top = (height + 50)+'px';
-        getELm('laps').style.right = 0 + "px";
-        getELm('laps').style.left = 0 + "px";
-        
+        getELm('main-section').style.height = "auto";
+        getELm('main').style.marginTop = "100px";
+        height = getELm('main').offsetHeight;
+        getELm('main-section').style.height = "auto";getELm('laps').style.top = (height + 150)+'px';
+        getELm('laps').style.height = window.innerHeight - getELm('remove').offsetHeight - 200 -height+ 'px';
     }
     if(window.innerHeight > 1000 && window.innerWidth > 700){
         getELm('main-section').style.height = "auto";
-        const height = getELm('main').offsetHeight;
-        getELm('main').style.marginTop = "100px";
-        console.log(height);
-        getELm('laps').style.top = (height + 150)+'px';
-        getELm('laps').style.right = 0 + "px";
-        getELm('laps').style.left = 0 + "px";
+        getELm('main').style.marginTop = "300px";
+        height = getELm('main').offsetHeight;
+        getELm('laps').style.top = (height + 350)+'px';
+        getELm('laps').style.height = window.innerHeight - getELm('remove').offsetHeight - 500 -height+ 'px';
     }
 }
-deviceFriendly();
+// deviceFriendly();
