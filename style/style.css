@@ -97,7 +97,7 @@ body {
     box-shadow: 0px 1px 5px #777;
 }
 
-svg {
+.icon {
     padding: 15px;
 }
 
@@ -120,7 +120,7 @@ svg {
         width: 40px;
     }
 
-    svg {
+    .icon {
         padding: 5px;
     }
 

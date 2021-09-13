@@ -27,14 +27,14 @@ addEvent('speaker','click',()=>{
     buttonAudio.play(); 
     speaker = !speaker;
     if(speaker){
-        getELm('speaker').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#eee">
+        getELm('speaker').innerHTML = `<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#eee">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-      </svg>`
+      </svg> </div>`
     } else{
-        getELm('speaker').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
+        getELm('speaker').innerHTML = `<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-      </svg>`
+      </svg></div>`
     }
 });
 // start button 
@@ -101,6 +101,7 @@ addEvent('lap-btn','click',()=>{
     laps.appendChild(div);
     getELm('remove').style.display = 'block';
     getELm('laps').style.display = 'block';
+    // scrolling to the bottom of laps 
     laps.scrollTo(0,document.getElementById('laps').scrollHeight);
     updateLocal({hour,minute,second,milisecond,lapCount});
     lapCount++;
@@ -273,14 +274,16 @@ window.onload = ()=>{
 const deviceFriendly = () =>{
     if(window.innerWidth < 650){
         getELm('main-section').style.height = "auto";
-        getELm('main').style.marginTop = "100px";
+        getELm('main').style.marginTop = "90px";
+        getELm('main-section').style.marginBottom = "10px";
         height = getELm('main').offsetHeight;
         getELm('main-section').style.height = "auto";getELm('laps').style.top = (height + 150)+'px';
         getELm('laps').style.height = window.innerHeight - getELm('remove').offsetHeight - 200 -height+ 'px';
     }
     if(window.innerHeight > 1000 && window.innerWidth > 700){
         getELm('main-section').style.height = "auto";
-        getELm('main').style.marginTop = "300px";
+        getELm('main').style.marginTop = "290px";
+        getELm('main-section').style.marginBottom = "10px";
         height = getELm('main').offsetHeight;
         getELm('laps').style.top = (height + 350)+'px';
         getELm('laps').style.height = window.innerHeight - getELm('remove').offsetHeight - 500 -height+ 'px';
